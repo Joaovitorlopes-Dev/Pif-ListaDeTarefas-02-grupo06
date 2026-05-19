@@ -23,7 +23,7 @@ Sistema de gerenciamento de tarefas em linha de comando desenvolvido na linguage
 Criar uma aplicação funcional de produtividade estilo:
 
 - Todoist
-- Microsoft To-Do
+- Microsoft To-Do list
 - Google Tasks
 
 permitindo:
