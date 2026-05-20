@@ -222,7 +222,7 @@ make clean
 # Exemplo do Menu
 
 ```txt
-===== TODO CLI =====
+===== GERENCIADOR DE TAREFAS =====
 
 1 - Adicionar tarefa
 2 - Listar todas
