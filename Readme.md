@@ -1,4 +1,4 @@
-# Lista de Tarefas CLI em C
+# Gerenciador de Tarefas CLI em C
 
 Sistema de gerenciamento de tarefas em linha de comando desenvolvido na linguagem C, utilizando os principais conceitos fundamentais da disciplina: structs, modularização, arquivos `.txt`, alocação dinâmica, recursão e menu interativo com `switch-case`.
 
