@@ -13,9 +13,11 @@ Sistema de gerenciamento de tarefas em linha de comando desenvolvido na linguage
 - Jean Augusto
 - João Vitor
 - Kellwen Igor
+- Kaio Cerqueira
 - Lucas Farias
 - Lucas Rogério
-
+- Mateus Xavier
+  
 ---
 
 # Objetivo do Projeto
