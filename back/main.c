@@ -19,7 +19,7 @@ int main(void) {
     carregarTarefas(&tarefas, &quantidade, &capacidade, &proximoId);
 
     do {
-        printf("\n===== TODO CLI =====\n");
+        printf("\n===== LISTA DE TAREFAS =====\n");
         printf("1 - Adicionar tarefa\n");
         printf("2 - Listar todas\n");
         printf("3 - Listar pendentes\n");
