@@ -8,15 +8,16 @@ Sistema de gerenciamento de tarefas em linha de comando desenvolvido na linguage
 
 ## Integrantes
 
-- Arthur Victor
-- Christopher Mark
-- Jean Augusto
-- João Vitor
-- Kellwen Igor
-- Kaio Cerqueira
-- Lucas Farias
-- Lucas Rogério
-- Mateus Xavier
+-	Arthur Victor da Silva Guimarães
+-	Christopher Mark Jones Moraes
+-	Jean Augusto dos Santos Mateus
+-	João Vitor Lopes de Albuquerque
+-	Kellwen Igor Liberato da Costa
+-	Kaio Cerqueira Santos da Silva
+-	Lucas Cavalcanti Farias 
+-	Lucas Rogério Moura Brito
+-	Mateus Xavier Ramos Rocha
+
   
 ---
 
