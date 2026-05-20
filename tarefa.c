@@ -148,4 +148,137 @@ void imprimirTarefa(Tarefa tarefa) {
         prioridadeTexto,
         statusTexto
     );
+}  
+
+void listarTodasRecursivo(Tarefa *tarefas, int quantidade, int indice) {
+    if (indice == 0) {
+        printf("\n--- LISTA DE TAREFAS ---\n");
+    }
+
+    if (quantidade == 0) {
+        printf("Nenhuma tarefa cadastrada.\n");
+        return;
+    }
+
+    if (indice >= quantidade) {
+        return;
+    }
+
+    imprimirTarefa(tarefas[indice]);
+
+    listarTodasRecursivo(tarefas, quantidade, indice + 1);
+}
+
+void listarPendentes(Tarefa *tarefas, int quantidade) {
+    int encontrou = 0;
+
+    printf("\n--- TAREFAS PENDENTES ---\n");
+
+    for (int i = 0; i < quantidade; i++) {
+        if (tarefas[i].concluida == 0) {
+            imprimirTarefa(tarefas[i]);
+            encontrou = 1;
+        }
+    }
+
+    if (encontrou == 0) {
+        printf("Nenhuma tarefa pendente.\n");
+    }
+}
+
+int buscarPorIdRecursivo(Tarefa *tarefas, int quantidade, int id, int indice) {
+    if (indice >= quantidade) {
+        return -1;
+    }
+
+    if (tarefas[indice].id == id) {
+        return indice;
+    }
+
+    return buscarPorIdRecursivo(tarefas, quantidade, id, indice + 1);
+}
+
+void marcarComoConcluida(Tarefa *tarefas, int quantidade) {
+    int id;
+    int indice;
+
+    printf("Digite o ID da tarefa que deseja concluir: ");
+
+    if (scanf("%d", &id) != 1) {
+        printf("Entrada invalida.\n");
+        limparBuffer();
+        return;
+    }
+
+    indice = buscarPorIdRecursivo(tarefas, quantidade, id, 0);
+
+    if (indice == -1) {
+        printf("Tarefa nao encontrada.\n");
+        return;
+    }
+
+    tarefas[indice].concluida = 1;
+    salvarTarefas(tarefas, quantidade);
+
+    printf("Tarefa marcada como concluida.\n");
+}
+
+void removerTarefa(Tarefa *tarefas, int *quantidade) {
+    int id;
+    int indice;
+
+    printf("Digite o ID da tarefa que deseja remover: ");
+
+    if (scanf("%d", &id) != 1) {
+        printf("Entrada invalida.\n");
+        limparBuffer();
+        return;
+    }
+
+    indice = buscarPorIdRecursivo(tarefas, *quantidade, id, 0);
+
+    if (indice == -1) {
+        printf("Tarefa nao encontrada.\n");
+        return;
+    }
+
+    for (int i = indice; i < (*quantidade) - 1; i++) {
+        tarefas[i] = tarefas[i + 1];
+    }
+
+    (*quantidade)--;
+
+    salvarTarefas(tarefas, *quantidade);
+
+    printf("Tarefa removida com sucesso.\n");
+}
+
+void filtrarPorPrioridade(Tarefa *tarefas, int quantidade) {
+    int prioridade;
+    int encontrou = 0;
+
+    printf("Digite a prioridade 1=baixa, 2=media, 3=alta: ");
+
+    if (scanf("%d", &prioridade) != 1 || prioridade < 1 || prioridade > 3) {
+        printf("Prioridade invalida.\n");
+        limparBuffer();
+        return;
+    }
+
+    printf("\n--- TAREFAS FILTRADAS ---\n");
+
+    for (int i = 0; i < quantidade; i++) {
+        if (tarefas[i].prioridade == prioridade) {
+            imprimirTarefa(tarefas[i]);
+            encontrou = 1;
+        }
+    }
+
+    if (encontrou == 0) {
+        printf("Nenhuma tarefa encontrada com essa prioridade.\n");
+    }
+}
+
+void liberarMemoria(Tarefa *tarefas) {
+    free(tarefas);
 }
